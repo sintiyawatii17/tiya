@@ -1,6 +1,9 @@
- <?php
+<?php
 
 use Illuminate\Support\Facades\Route;
+use App\Controllers\HomeController;
+use App\Controllers\AuthController;
+use App\Controllers\ProdukController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,32 +50,19 @@ Route::get('template', function () {
 	return view("template.base");
 
 });
-Route::get('Beranda', function () {
-	return view("Beranda");
-});
-
-Route::get('Produk', function () {
-	return view("Produk");
-});
-
-Route::get('Kategori', function () {
-	return view("Kategori ");
-});
 
 Route::get('Promo', function () {
 	return view("Promo ");
 });
 
-Route::get('masuk', function () {
+ Route::get('register', function () {
 	return view("masuk");
 });
 
-Route::get('register', function () {
-	return view("masuk");
-});
-
-
- 
+Route::get('/beranda',[HomeController:: class, 'showBeranda']);
+Route::get('/produk',[HomeController:: class, 'ShowProduk']);
+Route::get('/kategori',[HomeController:: class, 'showKategori']);
+Route::get('/masuk',[AuthController:: class, 'showMasuk']);
 
  
 
